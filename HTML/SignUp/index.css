@@ -1,27 +1,26 @@
   /* Sign up */
-  html{
-    background-image: url("/Images/Blue\ abstract\ background.png");
- }
- 
- body{
-     margin: 0;
- }
- 
- body html{
-     height: 100%;
- }
- 
- #bg{
-     background: #fff;
-     clip-path: polygon(100% 0, 100% 64%, 46% 100%, 0 100%, 0 0);
-     width: 100%;
-     height: 100%;
-     position: absolute;
-     z-index: -1;
- }
 
+  body{
+    padding: 0;
+    margin: 0;
+    background: whitesmoke;
+}
+ 
+
+#bg{
+  background: whitesmoke;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
   #signupForm{
-    margin: 0px 30px;
+    margin: 95px 30px;
+    border: rgb(170, 236, 161) solid;
+    /* rgb(235, 235, 235) */
+    border-radius: 10px;
+    padding: 50px;
+    background: white;
     
   }
 
@@ -30,23 +29,13 @@
     margin-bottom: 20px;
   }
 
-  img{
-    margin-right:75px;
-}
 
 @media only screen and (min-width: 768px) {
-    #bg{
-        clip-path: polygon(100% 0, 100% 51%, 70% 100%, 0 100%, 0 0);
-    }
+
     #signupForm{
-        margin: 0px 250px;
+      margin: 45px 300px 0;
+      width: 500px;
+      height: fit-content;
         }
-        img{
-            margin-right:300px;
-            width: 180px;
-            height: 180px;
-        }
-        .container{
-            margin-left: 0;
-        }
+        
   }

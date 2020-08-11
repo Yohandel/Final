@@ -1,7 +1,5 @@
 /*Login*/
-html{
-   background-image: url("/Images/Blue\ abstract\ background.png");
-}
+
 
 body{
     margin: 0;
@@ -12,20 +10,22 @@ body html{
 }
 
 #bg{
-    background: #fff;
-    clip-path: polygon(100% 0, 100% 64%, 46% 100%, 0 100%, 0 0);
+    background: whitesmoke;
     width: 100%;
     height: 100%;
     position: absolute;
     z-index: -1;
 }
 #loginForm{
-margin: 0px 30px;
+margin: 180px 30px;
+border: rgb(170, 236, 161) solid;
+/* rgb(235, 235, 235) */
+border-radius: 10px;
+padding: 50px;
+background: white;
+
 }
 
-img{
-    margin-right:75px;
-}
 
 #loginTitle{
     text-align: center;
@@ -34,16 +34,10 @@ img{
 
 
 @media only screen and (min-width: 768px) {
-    #bg{
-        clip-path: polygon(100% 0, 100% 51%, 70% 100%, 0 100%, 0 0);
-    }
     #loginForm{
-        margin: 0px 250px;
-        }
-        img{
-            margin-right:300px;
-            width: 180px;
-            height: 180px;
+    margin: 140px 500px 0;
+    width: 347px;
+    height: fit-content;
         }
        
   }
