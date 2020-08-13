@@ -13,8 +13,12 @@ body{
     font-size: 2.5rem;
 }
 
-#settingsIcon{
+.settingsIcon{
     font-size: large;
+}
+
+.fa-angle-down{
+    font-size: x-large;
 }
 
 /*...NAVS...*/
@@ -36,6 +40,24 @@ body{
     padding: 2px;
     border-radius: 15px;
 }
+
+.navs-dropMenu{
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(0px);
+    transition: .3s ease all;
+    
+}
+
+.navs-dropMenu.show{
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(10px);
+    transition: .3s ease all;
+}
+
 
 .btn-circle:focus{
     background: #eceeef;
@@ -84,14 +106,14 @@ height: 1px;
     height: 10px;
   }
   
-  .contacts::-webkit-scrollbar-thumb {
-  background: #dadcdd;
-    border-radius: 10px;
-  }
+.contacts::-webkit-scrollbar-thumb {
+background: #dadcdd;
+border-radius: 10px;
+}
 
-  .contacts::-webkit-scrollbar-thumb:hover {
-    background: #cecfcf;
-    }
+.contacts::-webkit-scrollbar-thumb:hover {
+background: #cecfcf;
+}
 
 
 .contact{
@@ -106,18 +128,67 @@ height: 1px;
     padding:18px 10px 70px ;
 }
 
-.dropdown-menu{
+ .contact .dropdown-menu{
     visibility: hidden;
     opacity: 0;
     transform: translateY(0px);
     transition: .3s ease all;
 }
 
-.dropdown-menu.show{
+.contact .dropdown-menu.show{
     visibility: visible;
     opacity: 1;
     transform: translateY(10px);
     transition: .3s ease all;
 }
+
+
+/*...CHAT...*/
+
+.chat-nav .row{
+    margin: 0;
+    padding: 0;
+}
+
+.chat-container{
+    height: 542px;
+    background: #eef2f5 ;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+.chat-container .message{
+    height: fit-content;
+    width: 325px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 25px 10px;
+}
+
+.chat-container .left{
+    background: #ffffff;
+}
+
+.chat-container .right{
+    margin-left: 61%;
+    background: #b2f0ca;
+}
+
+
+
+.chat-container::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+.chat-container::-webkit-scrollbar-thumb {
+background: #dadcdd;
+border-radius: 10px;
+}
+
+.chat-container::-webkit-scrollbar-thumb:hover {
+background: #cecfcf;
+}
+
 
 
