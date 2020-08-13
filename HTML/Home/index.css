@@ -21,6 +21,10 @@ body{
     font-size: x-large;
 }
 
+.fa-pen{
+    cursor: pointer;
+}
+
 /*...NAVS...*/
 
 .navs .row{
@@ -98,6 +102,10 @@ height: 1px;
     height: 494px;
     scroll-behavior: smooth;
     list-style: none;
+}
+
+.contacts .contact{
+    cursor: pointer;
 }
 
 
@@ -190,5 +198,14 @@ border-radius: 10px;
 background: #cecfcf;
 }
 
+.default-bg{
+    height: 100%;
+    width: 100%;
+    background: #eef2f5;
+}
 
 
+/* ...PROFILE... */
+.user-information{
+    margin: 10px 0 0 0;
+}

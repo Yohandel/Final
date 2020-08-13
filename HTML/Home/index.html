@@ -17,6 +17,7 @@
             <div class="col-md-4 col-sm-12">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top ">
                     <a class="navbar-brand" href="#"><i class="fa fa-user-circle" id="userIcon"></i></a>
+                    <label for="" id="userName"></label>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                         </ul>
@@ -26,12 +27,14 @@
                                 <i class="fas fa-ellipsis-v"></i>
                             </button>
                             <div class="dropdown-menu navs-dropMenu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Perfil</a>
+                                <a class="dropdown-item" href="#" data-toggle="modal"
+                                    data-target="#perfilModal">Perfil</a>
                                 <a class="dropdown-item" href="#">Mensaje nuevo</a>
                                 <a class="dropdown-item" href="#">Usuarios bloqueados</a>
                                 <a class="dropdown-item" href="#">Contactos</a>
                                 <a class="dropdown-item" href="#">Amigos</a>
                                 <a class="dropdown-item" href="#">Configuración</a>
+                                <a type="button" class="dropdown-item" href="#" onclick="logout()">Cerrar sesion</a>
                             </div>
                         </div>
 
@@ -39,12 +42,13 @@
 
                 <div class="container contacts-container">
                     <div class="form-group search-form">
-                        <input type="text" class="form-control form-control-sm mt-3" id="searchInput" placeholder="Buscar...">
+                        <input type="text" class="form-control form-control-sm mt-3" id="searchInput"
+                            placeholder="Buscar...">
                     </div>
                     <hr>
                     <ul class="contacts">
                         <li class="contact">
-                            <div class="container contact-container">
+                            <div class="container contact-container" onclick="openChat()">
                                 <div class="row">
                                     <div class="col-sm-2"> <i class="fa fa-user-circle" id="friendIcon"></i></div>
                                     <div class="col-sm-8"> <label for="">Ramon Antonio</label><br>
@@ -72,61 +76,64 @@
                 </div>
 
             </div>
-            <div class="col-md-8 col-sm-0">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-                    <div class="chat-nav">
-                        <div class="row">
-                            <div class="col-sm-3"> <a class="navbar-brand" href="#"><i class="fa fa-user"
-                                        id="userIcon"></i></a></div>
-                            <div class="col-sm-9 mt-2"> <label for="">Ramon Antonio</label><br>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                        </ul>
-                        <div class="dropdown dropleft">
-                            <button class="btn btn-circle" type="button" id="dropdownMenuButton" display="dinamic"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-angle-down"></i>
-                            </button>
-                            <div class="dropdown-menu navs-dropMenu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Bloquear</a>
-                                <a class="dropdown-item" href="#">Vaciar chat</a>
-                                <a class="dropdown-item" href="#">Ver contacto</a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="col-md-8 col-sm-0" id="chat">
+                <div class="default-bg" id="chatBG"></div>
+            </div>
+        </div>
+    </div>
 
-                </nav>
-                <div class="container chat-container">
-                    <div class="bg"></div>
-                    <div class="message left">
-                        <p>Lorem ipsum dolor sit amet consectetur, Adipisci quidem ut nam aspernatur! Accusantium, omnis
-                            explicabo.</p>
-                    </div>
-                    <div class="message right">
-                        <p>Lorem ipsum dolor sit amet consectetur, Adipisci quidem ut nam aspernatur! Accusantium, omnis
-                            explicabo.</p>
-                    </div>
-
+    <!-- PROFILE MODAL -->
+    <div class="modal fade " id="perfilModal" tabindex="-1" aria-labelledby="profileUser" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileUser">Perfil de usuario
+                        <i class="fas fa-pen" data-toggle="tooltip" data-placement="top" title="Click aqui para editar y para cancelar la edición"
+                            onclick="editToggle()"></i>
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="form-group input-send">
-                    <div class="input-group mb-2 mr-sm-2">
-                        <div class="input-group-prepend">
-                            <button class="btn btn-outline-success">SEND <i class="fas fa-paper-plane"></i></button>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="text-center">
+                            <img class="rounded mb-3" src="/Images/Blue abstract background.png" alt="" width="200"
+                                height="200">
+                            <div class="user-information">
+                                <label>Nombre de usuario:</label>
+                                <input disabled class="form-control form-control-sm" id="userProfile" />
+                            </div>
+                            <div class="user-information">
+                                <label>Correo electronico:</label>
+                                <input disabled class="form-control form-control-sm" id="emailProfile" />
+                            </div>
+                            <div class="user-information">
+                                <label>Estado:</label>
+                                <textarea class="form-control" disabled name="" id="statusProfile"></textarea>
+                            </div>
+
                         </div>
-                        <input class="form-control" type="text" name="" id="messageInput" placeholder="Message...">
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button disabled type="button" class="btn btn-primary" id="saveModal">Save changes</button>
                 </div>
             </div>
         </div>
-        
+    </div>
+
 
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
     crossorigin="anonymous"></script>
@@ -135,5 +142,28 @@
     crossorigin="anonymous"></script>
 
 <script src="https://kit.fontawesome.com/0b8e54e5c0.js" crossorigin="anonymous"></script>
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAXtk-c6BdA70om42FxSHwBytyIEKIfExI",
+        authDomain: "whtasappproject.firebaseapp.com",
+        databaseURL: "https://whtasappproject.firebaseio.com",
+        projectId: "whtasappproject",
+        storageBucket: "whtasappproject.appspot.com",
+        messagingSenderId: "24066503559",
+        appId: "1:24066503559:web:c53e82a064a35e521a5922"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore()
+</script>
+
+<script src="index.js"></script>
 
 </html>
