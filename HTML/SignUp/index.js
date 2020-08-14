@@ -54,7 +54,7 @@ function createUSR(uid, email, userName) {
     uid: uid,
     userName: userName,
     email: email,
-    about:"",
+    about:"Hola soy nuevo",
     photo:"/Images/Not-file.png"
   }).then((res) => {
     document.getElementById("userName").value = "";
