@@ -45,12 +45,18 @@ function sendInformation(username, email, password) {
 
 function createUSR(uid, email, userName) {
 
-  db.collection("users").add({
+  const gsReference = storage.refFromURL('gs://whtasappproject.appspot.com/Not-file')
+  console.log(gsReference.bucket + "/"+gsReference.fullPath)
+
+  console.log(gsReference)
+
+  db.collection("users").doc(uid).set({
     uid: uid,
     userName: userName,
-    email: email
+    email: email,
+    about:"",
+    photo:"/Images/Not-file.png"
   }).then((res) => {
-    console.log(res)
     document.getElementById("userName").value = "";
     document.getElementById("signupEmail").value = "";
     document.getElementById("signupPassword").value = "";
