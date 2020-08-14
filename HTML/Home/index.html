@@ -16,7 +16,10 @@
         <div class="row justify-content-start">
             <div class="col-md-4 col-sm-12">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top ">
-                    <a class="navbar-brand" href="#"><i class="fa fa-user-circle" id="userIcon"></i></a>
+                    <a class="navbar-brand" href="#">
+                        <img class="rounded-circle" src="/Images/Blue abstract background.png" alt="" width="50"
+                            height="50" id="profilePhoto">
+                    </a>
                     <label for="" id="userName"></label>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
@@ -84,41 +87,52 @@
 
     <!-- PROFILE MODAL -->
     <div class="modal fade " id="perfilModal" tabindex="-1" aria-labelledby="profileUser" aria-hidden="true">
-        <div class="modal-dialog  modal-dialog-scrollable">
+        <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="profileUser">Perfil de usuario
-                        <i class="fas fa-pen" data-toggle="tooltip" data-placement="top" title="Click aqui para editar y para cancelar la edición"
-                            onclick="editToggle()"></i>
-                    </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="text-center">
-                            <img class="rounded mb-3" src="/Images/Blue abstract background.png" alt="" width="200"
-                                height="200">
-                            <div class="user-information">
-                                <label>Nombre de usuario:</label>
-                                <input disabled class="form-control form-control-sm" id="userProfile" />
+                            <div class="profile-picture">
+                                <img class="rounded-circle mb-5 imgEdit" src="/Images/Blue abstract background.png"
+                                    alt="" id="profilePhoto">
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input disabled type="file" class="custom-file-input form-control-sm" id="photo"
+                                            aria-describedby="inputGroupFileAddon03">
+                                        <label class="custom-file-label" for="photo">Choose file...</label>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="user-information">
-                                <label>Correo electronico:</label>
-                                <input disabled class="form-control form-control-sm" id="emailProfile" />
-                            </div>
-                            <div class="user-information">
-                                <label>Estado:</label>
-                                <textarea class="form-control" disabled name="" id="statusProfile"></textarea>
-                            </div>
+                            <form>
+                                <div class="form-group">
+                                    <label>Nombre de usuario:</label>
+                                    <input disabled type="text" class="form-control form-control-sm" id="userProfile">
+                                </div>
+                                <div class="form-group">
+                                    <label>Correo electronico:</label>
+                                    <input disabled type="email" class="form-control form-control-sm" id="emailProfile">
+                                </div>
+                                <div class="form-group">
+                                    <label>Acerca de mi:</label>
+                                    <input disabled type="text" class="form-control form-control-sm" id="statusProfile">
+                                </div>
+                            </form>
+
 
                         </div>
+                        <div class="text-right">
+
+                            <button data-toggle="tooltip" data-placement="top"
+                                title="Click aqui para editar y para cancelar la edición" onclick="editToggle()"
+                                type="submit" class="btn btn-success btn-sm">Editar</button>
+
+                            <button disabled type="submit" class="btn btn-success btn-sm" id="saveModal"
+                                onclick="upload()">Guardar</button>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button disabled type="button" class="btn btn-primary" id="saveModal">Save changes</button>
                 </div>
             </div>
         </div>
@@ -133,6 +147,11 @@
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
+
+    $('.custom-file-input').on('change', function () {
+        let fileName = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').html(fileName);
+    });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"

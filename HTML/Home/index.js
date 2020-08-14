@@ -2,6 +2,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     let username = document.getElementById("userName");
     let userProfile = document.getElementById("userProfile");
     let emailProfile = document.getElementById("emailProfile");
+    let profilePhoto = document.getElementsByClassName("rounded-circle")
     if (user) {
         let currentU = firebase.auth().currentUser;
         db
@@ -12,7 +13,9 @@ firebase.auth().onAuthStateChanged(function (user) {
                 querySnapshot.forEach(function (doc) {
                     username.innerHTML = `${doc.data().userName}`
                     userProfile.value = doc.data().userName
-                    emailProfile.value = doc.data().email
+                    emailProfile.value = doc.data().email            
+                    profilePhoto[0].src = doc.data().photo
+                    profilePhoto[1].src = doc.data().photo
                 });
             })
             .catch(function (error) {
@@ -95,18 +98,57 @@ const editToggle = () => {
     let emailProfile = document.getElementById("emailProfile").disabled;
     let statusProfile = document.getElementById("statusProfile").disabled;
     let saveModal = document.getElementById("saveModal").disabled;
+    let profilePhoto = document.getElementById("photo").disabled;
 
-if (userProfile && emailProfile && statusProfile && saveModal) {
-    userProfile = document.getElementById("userProfile").disabled = false;
-    emailProfile = document.getElementById("emailProfile").disabled = false;
-    statusProfile = document.getElementById("statusProfile").disabled = false;
-    saveModal = document.getElementById("saveModal").disabled = false;
+
+    if (userProfile && emailProfile && statusProfile && saveModal && profilePhoto) {
+        document.getElementById("userProfile").disabled = false;
+        document.getElementById("emailProfile").disabled = false;
+        document.getElementById("statusProfile").disabled = false;
+        document.getElementById("saveModal").disabled = false;
+        document.getElementById("photo").disabled = false;
+    }
+    else {
+        document.getElementById("userProfile").disabled = true;
+        document.getElementById("emailProfile").disabled = true;
+        document.getElementById("statusProfile").disabled = true;
+        document.getElementById("saveModal").disabled = true;
+        document.getElementById("photo").disabled = true;
+    }
+
 }
-else{
-    userProfile = document.getElementById("userProfile").disabled = true;
-    emailProfile = document.getElementById("emailProfile").disabled = true;
-    statusProfile = document.getElementById("statusProfile").disabled = true;
-    saveModal = document.getElementById("saveModal").disabled = true;
-}
+
+const upload = () => {
+
+    const usr = firebase.auth().currentUser;
+    const ref = firebase.storage().ref()
+    let file = document.getElementById("photo").files[0]
+    let profilePhoto = document.getElementsByClassName("rounded-circle")
+    if (file == null) {
+        alert("There is an error with your image, please try again")
+    } else {
+        const fileName = file.name
+        const task = ref.child(fileName).put(file);
+        task
+            .then(snapshot => snapshot.ref.getDownloadURL()).then(res => {
+                console.log(res)
+                profilePhoto[0].src = res
+                profilePhoto[1].src = res
+                db
+                    .collection("users")
+                    .where("email", "==", usr.email)
+                    .get()
+                    .then(function (querySnapshot) {
+                        querySnapshot.forEach(function (doc) {
+                            db.collection("users").doc(doc.id).update({
+                                photo: res
+                            })
+                        });
+                    })
+                    .catch(function (error) {
+
+                    })
+            })
+    }
 
 }
