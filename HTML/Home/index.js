@@ -23,11 +23,57 @@ firebase.auth().onAuthStateChanged(function (user) {
             .catch(function (error) {
 
             })
+            loadContacts();
     } else {
         window.location.href = "/HTML/Login";
     }
 });
 
+
+const loadContacts = () =>{
+const usr =  firebase.auth().currentUser;
+let contacts = document.getElementById("contacts");
+db
+    .collection("users")
+    .get()
+    .then(function (querySnapshot) {
+        querySnapshot.forEach(doc=> {
+            contacts.innerHTML=``
+            if (doc.data().email != usr.email) {
+                console.log(doc.data().email)
+                contacts.innerHTML=`
+                <li class="contact">
+                <div class="container contact-container" onclick="openChat()">
+                    <div class="row">
+                        <div class="col-sm-2"> <i class="fa fa-user-circle" id="friendIcon"></i></div>
+                        <div class="col-sm-8"> <label for="">Ramon Antonio</label><br>
+                            <small class="form-text text-muted"><label for="">Mensaje...</label></small>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="dropdown">
+                                <button class="btn btn-circle" type="button" id="dropdownMenuButton"
+                                    display="dinamic" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <i class="fas fa-cog" class="settingsIcon"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Eliminar chat</a>
+                                    <a class="dropdown-item" href="#">Ver contacto</a>
+                                    <a class="dropdown-item" href="#">Bloquear contacto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>`
+                
+            }
+        });
+    })
+    .catch(function (error) {
+
+    })
+}
 
 const logout = () => {
     firebase.auth().signOut()
