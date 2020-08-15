@@ -3,6 +3,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     let userProfile = document.getElementById("userProfile");
     let emailProfile = document.getElementById("emailProfile");
     let profilePhoto = document.getElementsByClassName("rounded-circle")
+    let about =  document.getElementById("statusProfile")
     if (user) {
         let currentU = firebase.auth().currentUser;
         db
@@ -16,13 +17,14 @@ firebase.auth().onAuthStateChanged(function (user) {
                     emailProfile.value = doc.data().email
                     profilePhoto[0].src = doc.data().photo
                     profilePhoto[1].src = doc.data().photo
+                    about.innerHTML = doc.data().about
                 });
             })
             .catch(function (error) {
 
             })
     } else {
-        document.getElementById("userName").innerHTML = ``
+        window.location.href = "/HTML/Login";
     }
 });
 
@@ -38,7 +40,7 @@ const logout = () => {
 
 const openChat = () => {
     document.getElementById("chat").innerHTML = `
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light">
     <div class="chat-nav">
         <div class="row">
             <div class="col-sm-3"> <a class="navbar-brand" href="#"><i class="fa fa-user"
@@ -120,7 +122,7 @@ const editToggle = () => {
                 document.getElementById("userProfile").innerHTML = doc.data().userName;
                 document.getElementById("statusProfile").innerHTML = doc.data().about;
             })
-            .catch( error => {
+            .catch(error => {
                 console.log(error)
             })
     }
@@ -129,21 +131,34 @@ const editToggle = () => {
 
 const updateProfile = () => {
     const usr = firebase.auth().currentUser;
-    const ref = firebase.storage().ref()
     let userProfile = document.getElementById("userProfile");
     let statusProfile = document.getElementById("statusProfile");
+
+    if (userProfile == !/^(\w+\S+)$/ || statusProfile == !/^(\w+\S+)$/) {
+        alert("Todos los campos son obligatorios")
+    }
+    else {
+        db.collection("users").doc(usr.uid).update({
+            about: statusProfile.value,
+            email: emailProfile.value,
+            userName: userProfile.value
+        })
+    }
+
+}
+
+
+const uploadFile = () => {
+    const ref = firebase.storage().ref()
+    const usr = firebase.auth().currentUser;
     let file = document.getElementById("photo").files[0]
     let profilePhoto = document.getElementsByClassName("rounded-circle")
 
 
     if (file == null) {
         alert("Debe seleccionar una foto")
-        console.log(file)
     }
-    else if (userProfile == !/^(\w+\S+)$/ || statusProfile == !/^(\w+\S+)$/) {
-        alert("Todos los campos son obligatorios")
-    }
-     else {
+    else {
         const fileName = file.name
         const task = ref.child(fileName).put(file);
         task
@@ -151,12 +166,21 @@ const updateProfile = () => {
                 profilePhoto[0].src = res
                 profilePhoto[1].src = res
                 db.collection("users").doc(usr.uid).update({
-                    about: statusProfile.value,
-                    email: emailProfile.value,
-                    photo: res,
-                    userName: userProfile.value
+                    photo: res
                 })
             })
     }
+
+}
+
+const deleteFile = () => {
+    const usr = firebase.auth().currentUser;
+    let profilePhoto = document.getElementsByClassName("rounded-circle");
+    profilePhoto[0].src = "/Images/Not-file.png"
+    profilePhoto[1].src = "/Images/Not-file.png"
+
+    db.collection("users").doc(usr.uid).update({
+        photo: "/Images/Not-file.png"
+    })
 
 }

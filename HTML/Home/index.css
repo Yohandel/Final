@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 /*...ICONS...*/
@@ -32,6 +33,22 @@ body {
 }
 
 /*...NAVS...*/
+
+nav {
+    background: var(--unnamed-color-11bcb8) 0% 0% no-repeat padding-box;
+    background: #11BCB8 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+nav #userName {
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-edf9f8);
+    text-align: left;
+    font: Bold 19px/26px Arial;
+    letter-spacing: 0px;
+    color: #EDF9F8;
+    opacity: 1;
+}
 
 .navs .row {
     margin: 0;
@@ -67,8 +84,8 @@ body {
 }
 
 .btn-circle:focus {
-    background: #eceeef;
-    box-shadow: 0 0 0 0.2rem #eceeef;
+    background: #14c5c2;
+    box-shadow: 0 0 0 0.2rem #11BCB8;
 }
 
 /*...SERACH FORM...*/
@@ -91,7 +108,11 @@ hr {
 /*...CONTACTS...*/
 
 .contacts-container {
-    background: #eef2f5;
+    background: var(--unnamed-color-edf9f8) 0% 0% no-repeat padding-box;
+    background: #EDF9F8 0% 0% no-repeat padding-box;
+    opacity: 1;
+    height: 594px;
+    margin-bottom: 0;
 }
 
 .contact-container .row {
@@ -101,7 +122,7 @@ hr {
 
 .contacts {
     overflow: scroll;
-    height: 494px;
+    height: 100%;
     scroll-behavior: smooth;
     list-style: none;
 }
@@ -158,10 +179,12 @@ hr {
 }
 
 .chat-container {
-    height: 542px;
-    background: #eef2f5;
+    height: 83.2%;
     overflow-y: scroll;
     scroll-behavior: smooth;
+    background: var(--unnamed-color-edf9f8) 0% 0% no-repeat padding-box;
+    background: #EDF9F8 0% 0% no-repeat padding-box;
+    opacity: 1;
 }
 
 .chat-container .message {
@@ -198,7 +221,9 @@ hr {
 .default-bg {
     height: 100%;
     width: 100%;
-    background: #eef2f5;
+    background: var(--unnamed-color-edf9f8) 0% 0% no-repeat padding-box;
+    background: #EDF9F8 0% 0% no-repeat padding-box;
+    opacity: 1;
 }
 
 /* ...PROFILE... */
@@ -232,7 +257,19 @@ hr {
     opacity: 1;
 }
 
+.modal-content .form-group textarea {
+    background: var(--unnamed-color-edf9f8) 0% 0% no-repeat padding-box;
+    border: 2px solid var(--unnamed-color-11bcb8);
+    background: #EDF9F8 0% 0% no-repeat padding-box;
+    border: 2px solid #11BCB8;
+    border-radius: 10px;
+    opacity: 1;
+}
+
 .modal-content .form-group input:disabled {
+    background: #c8eae8;
+}
+.modal-content .form-group textarea:disabled {
     background: #c8eae8;
 }
 

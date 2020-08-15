@@ -15,9 +15,9 @@
     <div class="container navs">
         <div class="row justify-content-start">
             <div class="col-md-4 col-sm-12">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top ">
+                <nav class="navbar navbar-expand-lg">
                     <a class="navbar-brand" href="#">
-                        <img class="rounded-circle" src="/Images/Blue abstract background.png" alt="" width="50"
+                        <img class="rounded-circle" src="" alt="" width="50"
                             height="50" id="profilePhoto">
                     </a>
                     <label for="" id="userName"></label>
@@ -96,10 +96,20 @@
                     <div class="container-fluid">
                         <div class="text-center">
                             <div class="profile-picture">
-                                <img class="rounded-circle mb-5 imgEdit" src="/Images/Blue abstract background.png"
-                                    alt="" id="profilePhoto">
+                                <div class="dropdown">
+                                    <img id="dropdownMenuButton" display="dinamic" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" class="rounded-circle mb-5 imgEdit"
+                                        src="" alt="" id="profilePhoto">
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#" onclick="deleteFile()">Eliminar photo</a>
+                                    </div>
+                                </div>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-success btn-sm btn-file" type="button"
+                                                onclick="uploadFile()">Upload</button>
+                                        </div>
                                         <input disabled type="file" class="custom-file-input form-control-sm" id="photo"
                                             aria-describedby="inputGroupFileAddon03">
                                         <label class="custom-file-label" for="photo">Choose file...</label>
@@ -116,9 +126,9 @@
                                     <input disabled type="email" class="form-control form-control-sm" id="emailProfile">
                                 </div>
                                 <div class="form-group">
-                                    <label>Acerca de mi:</label>
-                                    <input disabled type="text" class="form-control form-control-sm" id="statusProfile">
-                                </div>
+                                    <label for="exampleFormControlTextarea1">Example textarea</label>
+                                    <textarea disabled class="form-control" rows="1" id="statusProfile"></textarea>
+                                  </div>
                             </form>
 
 
