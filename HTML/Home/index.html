@@ -15,32 +15,39 @@
     <div class="container navs">
         <div class="row justify-content-start">
             <div class="col-md-4 col-sm-12">
-                <nav class="navbar navbar-expand-lg">
-                    <a class="navbar-brand" href="#">
-                        <img class="rounded-circle" src="" alt="" width="50"
-                            height="50" id="profilePhoto">
+                <nav class="navbar navbar-expand-lg sticky">
+                    <a class="navbar-brand" href="#" data-toggle="modal" data-target="#perfilModal">
+                        <img class="rounded-circle" src="" alt="" id="profilePhoto">
                     </a>
                     <label for="" id="userName"></label>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                        </ul>
-                        <div class="dropdown dropleft">
-                            <button class="btn btn-circle" type="button" id="dropdownMenuButton" display="dinamic"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v"></i>
-                            </button>
-                            <div class="dropdown-menu navs-dropMenu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#" data-toggle="modal"
-                                    data-target="#perfilModal">Perfil</a>
-                                <a class="dropdown-item" href="#">Mensaje nuevo</a>
-                                <a class="dropdown-item" href="#">Usuarios bloqueados</a>
-                                <a class="dropdown-item" href="#">Contactos</a>
-                                <a class="dropdown-item" href="#">Amigos</a>
-                                <a class="dropdown-item" href="#">Configuración</a>
-                                <a type="button" class="dropdown-item" href="#" onclick="logout()">Cerrar sesion</a>
-                            </div>
+                    <ul class="navbar-nav mr-auto ml-3 ">
+                    </ul>
+                    <ul class="list-group list-group-horizontal nav-options">
+                        <button data-toggle="tooltip" data-placement="top"
+                            title="Descubre nuevos amigos" class="btn btn-circle"
+                            type="button">
+                            <li><i class="fas fa-address-book"></i></li>
+                        </button>
+                        <button  class="btn btn-circle" type="button" data-toggle="tooltip" data-placement="top"
+                        title="Inicia un nuevo chat">
+                            <li><i class="far fa-comment-alt"></i></li>
+                        </button>
+                    </ul>
+                    <div class="dropdown dropleft">
+                        <button class="btn btn-circle" type="button" id="dropdownMenuButton" display="dinamic"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <div class="dropdown-menu navs-dropMenu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#perfilModal">Perfil</a>
+                            <a class="dropdown-item" href="#">Mensaje nuevo</a>
+                            <a class="dropdown-item" href="#">Usuarios bloqueados</a>
+                            <a class="dropdown-item" href="#">Contactos</a>
+                            <a class="dropdown-item" href="#">Amigos</a>
+                            <a class="dropdown-item" href="#">Configuración</a>
+                            <a type="button" class="dropdown-item" href="#" onclick="logout()">Cerrar sesion</a>
                         </div>
-
+                    </div>
                 </nav>
 
                 <div class="container contacts-container">
@@ -74,8 +81,8 @@
                             <div class="profile-picture">
                                 <div class="dropdown">
                                     <img id="dropdownMenuButton" display="dinamic" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false" class="rounded-circle mb-5 imgEdit"
-                                        src="" alt="" id="profilePhoto">
+                                        aria-haspopup="true" aria-expanded="false" class="rounded-circle mb-5" src=""
+                                        alt="" id="profilePhoto">
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="#" onclick="deleteFile()">Eliminar photo</a>
                                     </div>
@@ -104,7 +111,7 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Example textarea</label>
                                     <textarea disabled class="form-control" rows="1" id="statusProfile"></textarea>
-                                  </div>
+                                </div>
                             </form>
 
 
@@ -123,6 +130,46 @@
             </div>
         </div>
     </div>
+
+    <!-- END PROFILE MODAL -->
+
+    <!-- FRIEND PROFILE MODAL -->
+    <div class="modal fade " id="frienModal" tabindex="-1" aria-labelledby="profileUser" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="text-center">
+                            <div class="profile-picture">
+                                <img class="rounded-circle mb-5" src="" alt="" id="friendPhoto">
+                            </div>
+                            <form>
+                                <div class="form-group">
+                                    <label>Nombre de usuario:</label>
+                                    <input disabled type="text" class="form-control form-control-sm" id="userFriend">
+                                </div>
+                                <div class="form-group">
+                                    <label>Correo electronico:</label>
+                                    <input disabled type="email" class="form-control form-control-sm" id="emailFriend">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Example textarea</label>
+                                    <textarea disabled class="form-control" rows="1" id="statusFriend"></textarea>
+                                </div>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- END FRIEND PROFILE MODAL -->
 
 
 </body>

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>Sent</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -14,6 +14,7 @@
 <body>
     <div id="bg">
         <div class="container-fluid" id="contianer">
+            <img src="/Images/Asset 2.svg" alt="" id="logo">
             <form id="loginForm">
                 <div class="alert alert-danger" id="errorMessage" role="alert" hidden>
                 </div>
@@ -26,7 +27,7 @@
                     <label for="loginPassword">Password</label>
                     <input type="password" class="form-control" id="loginPassword">
                 </div>
-                <button class="btn btn-outline-success" onclick="signIn(event)">Login</button><br>
+                <button class="btn btn-success" onclick="signIn(event)">Login</button><br>
                 <small class="text-muted">¿No tienes una cuenta? <a href="../SignUp/"
                         class="text-decoration-none">registrate</a></a></small>
 
