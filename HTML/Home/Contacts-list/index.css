@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+}
+
+#contactsModal #container {
+    height: 100%;
+    height: inherit;
+    padding: 0;
+    margin: 0px 0px;
+    background: var(--unnamed-color-edf9f8) 0% 0% no-repeat padding-box;
+    background: #EDF9F8 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+#contactsModal .navbar {
+    width: 100%;
+    margin: 0;
+    background: var(--unnamed-color-11bcb8) 0% 0% no-repeat padding-box;
+    background: #11BCB8 0% 0% no-repeat padding-box;
+    opacity: 1;
+    /* height: 231px; */
+}
+
+#contactsModal .search-form {
+    width: 300px;
+}
+
+#contactsModal #searchInput2 {
+    border-radius: 8px;
+}
+
+#contactsModal .fa-arrow-left {
+    cursor: pointer;
+    font-size: large;
+}
+
+#contactsModal .contacts .row {
+    width: 100%;
+    margin: 40px 0;
+    padding: 0;
+}
+
+#contactsModal #contacs-list {
+    list-style: none;
+    height: 504px;
+    overflow: scroll;
+}
+
+#contactsModal #contacs-list::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+#contactsModal #contacs-list::-webkit-scrollbar-thumb {
+    background: #dadcdd;
+    border-radius: 10px;
+}
+
+#contactsModal #contacs-list::-webkit-scrollbar-thumb:hover {
+    background: #cecfcf;
+}
+
+#contactsModal #username {
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-01615f);
+    text-align: left;
+    font: Bold 18px/24px Arial;
+    letter-spacing: 0px;
+    color: #01615F;
+    opacity: 1;
+}
+
+#contactsModal #userAbout {
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-01615f);
+    text-align: left;
+    font: Regular 10px/14px Arial;
+    letter-spacing: 0px;
+    color: #01615F;
+    opacity: 1;
+}
+
+#contactsModal #btn{
+    background: #11BCB8 0% 0%;
+    border: none;
+}
+
+#contactsModal .btn-success {
+    background: #11BCB8 0% 0%;
+}
+
+#contactsModal .btn-success:disabled {
+    background: #11bcb9d8 0% 0%;
+}
+
+#contactsModal .btn-success:hover {
+    background: #0c8583d8 0% 0%;
+}
+
+#contactsModal .btn-success:focus {
+    background: #11BCB8 0% 0%;
+    border: none;
+}
+
+#contactsModal .btn-success::selection {
+    background: #11BCB8 0% 0%;
+    border: none;
+}
+
+
+#contactsModal .close {
+    position: absolute;
+    margin: 20px 320px;
+}
+
+#contactsModal .fa-spinner {
+    -webkit-animation: spin 0.8s linear infinite;
+    /* Safari */
+    animation: spin 0.8s linear infinite;
+}
+
+#contactsModal .rounded-circle{
+    width: 61px;
+    height: 61px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

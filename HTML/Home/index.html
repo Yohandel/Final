@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="./Contacts-list/index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
@@ -23,15 +24,14 @@
                     <ul class="navbar-nav mr-auto ml-3 ">
                     </ul>
                     <ul class="list-group list-group-horizontal nav-options">
-                        <button data-toggle="tooltip" data-placement="top"
-                            title="Descubre nuevos amigos" class="btn btn-circle"
-                            type="button">
-                            <li><i class="fas fa-address-book"></i></li>
-                        </button>
-                        <button  class="btn btn-circle" type="button" data-toggle="tooltip" data-placement="top"
-                        title="Inicia un nuevo chat">
+                        <a data-toggle="modal" data-target="#contactsModal" class="btn btn-circle" type="button">
+                            <li><i data-toggle="tooltip" data-placement="top" title="Descubre nuevos amigos"
+                                    class="fas fa-address-book"></i></li>
+                        </a>
+                        <a href="#" class="btn btn-circle" type="button" data-toggle="tooltip" data-placement="top"
+                            title="Inicia un nuevo chat">
                             <li><i class="fas fa-comment-alt"></i></li>
-                        </button>
+                        </a>
                     </ul>
                     <div class="dropdown dropleft">
                         <button class="btn btn-circle" type="button" id="dropdownMenuButton" display="dinamic"
@@ -134,7 +134,7 @@
     <!-- END PROFILE MODAL -->
 
     <!-- FRIEND PROFILE MODAL -->
-    <div class="modal fade " id="frienModal" tabindex="-1" aria-labelledby="profileUser" aria-hidden="true">
+    <div class="modal fade " id="friendModal" tabindex="-1" aria-labelledby="profileUser" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -172,28 +172,42 @@
     <!-- END FRIEND PROFILE MODAL -->
 
 
-</body>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-<script>
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
+    <div class="modal fade" id="contactsModal" tabindex="-1" aria-labelledby="profileUser" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-body" id="container">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <i class="fas fa-arrow-left" class="close" data-dismiss="modal" aria-label="Close"></i>
+                        <ul class="navbar-nav mr-auto">
+                        </ul>
+                        <div class="form-group search-form">
+                            <input type="text" class="form-control form-control-sm mt-3" id="searchInput2"
+                                placeholder="Buscar...">
+                        </div>
+                    </nav>
+                    <div class="contacts-container">
+                        <ul class="contacts text-center" id="contacs-list">
+                        </ul>
+                    </div>
 
-    $('.custom-file-input').on('change', function () {
-        let fileName = $(this).val().split('\\').pop();
-        $(this).next('.custom-file-label').html(fileName);
-    });
-</script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<!--SCRIPTS-->
+<!-- BOOTSTRAP -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
     crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
-
-<script src="https://kit.fontawesome.com/0b8e54e5c0.js" crossorigin="anonymous"></script>
 <!-- FIREBASE -->
 <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
 
@@ -214,8 +228,28 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore()
+    const storage = firebase.storage();
 </script>
 
-<script src="index.js"></script>
+<!-- JS INDEX FILE -->
+<script src="/JS/home.js"></script>
+<script src="/JS/contacts.js"></script>
+
+
+<!-- FONTAWESOME -->
+<script src="https://kit.fontawesome.com/0b8e54e5c0.js" crossorigin="anonymous"></script>
+
+<!-- JQUERY -->
+
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    $('.custom-file-input').on('change', function () {
+        let fileName = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').html(fileName);
+    });
+</script>
 
 </html>

@@ -53,7 +53,7 @@ const loadContacts = () => {
                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                              <a class="dropdown-item" href="#">Eliminar chat</a>
                              <a class="dropdown-item" href="#" data-toggle="modal"
-                             data-target="#frienModal" onclick="friendProfile('${doc.id}')">Ver contacto</a>
+                             data-target="#friendModal" onclick="friendProfile('${doc.id}')">Ver contacto</a>
                              <a class="dropdown-item" href="#">Bloquear contacto</a>
                          </div>
                      </div>
@@ -89,7 +89,7 @@ const openChat = (id) => {
                 <div class="row">
                     <div class="col-sm-4"> <a class="navbar-brand" href="#"
                     onclick="friendProfile('${doc.id}')"
-                     data-toggle="modal" data-target="#frienModal">
+                     data-toggle="modal" data-target="#friendModal">
                     <img class="rounded-circle" src="${doc.data().photo}"alt="">
                     </a></div>
                     <div class="col-sm-8 mt-3"> <label for="">${doc.data().userName}</label><br>
@@ -107,7 +107,7 @@ const openChat = (id) => {
                         <a class="dropdown-item" href="#">Bloquear</a>
                         <a class="dropdown-item" href="#">Vaciar chat</a>
                         <a class="dropdown-item" href="/" data-toggle="modal"
-                        data-target="#frienModal" onclick="friendProfile('${doc.id}')">Ver contacto</a>
+                        data-target="#friendModal" onclick="friendProfile('${doc.id}')">Ver contacto</a>
                         <a class="dropdown-item" href="#" onclick="closeChat()">Cerrar chat</a>
                     </div>
                 </div>
