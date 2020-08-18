@@ -27,6 +27,21 @@ firebase.auth().onAuthStateChanged(function (user) {
             });
         })
 
+
+        db
+            .collection("friend-requests")
+            .where("sender", "==", usr.uid)
+            .get()
+            .then(function (querySnapshot) {
+                querySnapshot.forEach(doc => {
+                    document.getElementById(`btn${doc.data().receiver}`).disabled = true
+                    document.getElementById(`btn${doc.data().receiver}`).innerHTML = `Sent <i class="fas fa-user-clock"></i>`
+                });
+            })
+            .catch(function (error) {
+
+            })
+
     } else {
         window.location.href = "/HTML/Login";
     }
