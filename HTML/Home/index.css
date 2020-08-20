@@ -261,14 +261,14 @@ hr {
     margin: 10px 0 0 0;
 }
 
-#perfilModal, #friendModal .modal-content {
+.information-modal .modal-content {
     margin: 0px 70px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border-radius: 10px;
     opacity: 1;
 }
 
-#perfilModal, #friendModal .modal-content img {
+.information-modal .modal-content img {
     cursor: pointer;
     top: 164px;
     left: 790px;
@@ -277,7 +277,7 @@ hr {
     opacity: 1;
 }
 
-#perfilModal, #friendModal .modal-content .form-group input {
+.information-modal .modal-content .form-group input {
     background: var(--unnamed-color-edf9f8) 0% 0% no-repeat padding-box;
     border: 2px solid var(--unnamed-color-11bcb8);
     background: #EDF9F8 0% 0% no-repeat padding-box;
@@ -286,7 +286,7 @@ hr {
     opacity: 1;
 }
 
-#perfilModal, #friendModal .modal-content .form-group textarea {
+.information-modal .modal-content .form-group textarea {
     background: var(--unnamed-color-edf9f8) 0% 0% no-repeat padding-box;
     border: 2px solid var(--unnamed-color-11bcb8);
     background: #EDF9F8 0% 0% no-repeat padding-box;
@@ -295,15 +295,15 @@ hr {
     opacity: 1;
 }
 
-#perfilModal, #friendModal .modal-content .form-group input:disabled {
+.information-modal .modal-content .form-group input:disabled {
     background: #c8eae8;
 }
 
-#perfilModal, #friendModal .modal-content .form-group textarea:disabled {
+.information-modal .modal-content .form-group textarea:disabled {
     background: #c8eae8;
 }
 
-#perfilModal, #friendModal .modal-content .form-group label {
+.information-modal .modal-content .form-group label {
     height: 16px;
     font: Bold 14px/16px var(--unnamed-font-family-arial);
     letter-spacing: var(--unnamed-character-spacing-0);

@@ -17,7 +17,8 @@ function signIn(evt) {
     alert.innerHTML = ``
     firebase.auth().signInWithEmailAndPassword(email, password).then(res =>{
       window.location.href = "/HTML/Home";
-    }).catch(function(error) {
+    }).catch(function (error) { 
+alert(`${error.message} ${error.code}`)
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;

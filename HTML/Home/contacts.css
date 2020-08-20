@@ -92,6 +92,7 @@ body, html {
 
 #contactsModal .btn-success {
     background: #11BCB8 0% 0%;
+    width: 103px;
 }
 
 #contactsModal .btn-success:disabled {

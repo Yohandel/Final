@@ -3,7 +3,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         let username = document.getElementById("userName");
         let userProfile = document.getElementById("userProfile");
         let emailProfile = document.getElementById("emailProfile");
-        let profilePhoto = document.getElementsByClassName("rounded-circle")
+        let profilePhoto = document.getElementsByClassName("profile-photo")
         let about = document.getElementById("statusProfile")
         let currentU = firebase.auth().currentUser;
 
@@ -71,7 +71,8 @@ const logout = () => {
     firebase.auth().signOut()
         .then(res => {
             console.log(res)
-        }).catch(function (error) {
+        }).catch(function  (error) { 
+alert(`${error.message} ${error.code}`)
             console.log(`${error.code} ${error.message}`)
         });
 }
@@ -134,7 +135,8 @@ const openChat = (id) => {
             </div>
         </div>`
         })
-        .catch(function (error) {
+        .catch(function  (error) { 
+alert(`${error.message} ${error.code}`)
 
         })
 
@@ -223,7 +225,7 @@ const uploadFile = () => {
 
 const deleteFile = () => {
     const usr = firebase.auth().currentUser;
-    let profilePhoto = document.getElementsByClassName("rounded-circle");
+    let profilePhoto = document.getElementsByClassName("profile-photo");
     profilePhoto[0].src = "/Images/Not-file.png"
     profilePhoto[1].src = "/Images/Not-file.png"
 
@@ -248,7 +250,8 @@ const friendProfile = (id) => {
             profilePhoto.src = doc.data().photo
             about.innerHTML = doc.data().about
         })
-        .catch(function (error) {
+        .catch(function  (error) { 
+alert(`${error.message} ${error.code}`)
 
         })
 

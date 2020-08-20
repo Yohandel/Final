@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="./Contacts-list/index.css">
+    <link rel="stylesheet" href="./contacts.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
@@ -18,7 +18,7 @@
             <div class="col-md-4 col-sm-12">
                 <nav class="navbar navbar-expand-lg sticky">
                     <a class="navbar-brand" href="#" data-toggle="modal" data-target="#perfilModal">
-                        <img class="rounded-circle" src="" alt="" id="profilePhoto">
+                        <img class="rounded-circle profile-photo" src="" alt="" id="profilePhoto">
                     </a>
                     <label for="" id="userName"></label>
                     <ul class="navbar-nav mr-auto ml-3 ">
@@ -42,9 +42,8 @@
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#perfilModal">Perfil</a>
                             <a class="dropdown-item" href="#">Mensaje nuevo</a>
                             <a class="dropdown-item" href="#">Usuarios bloqueados</a>
-                            <a class="dropdown-item" href="#">Contactos</a>
                             <a class="dropdown-item" href="#">Amigos</a>
-                            <a class="dropdown-item" href="#">Configuración</a>
+                            <a class="dropdown-item" href="./Friend-requests/">Solicitudes de amistad</a>
                             <a type="button" class="dropdown-item" href="#" onclick="logout()">Cerrar sesion</a>
                         </div>
                     </div>
@@ -69,7 +68,8 @@
     </div>
 
     <!-- PROFILE MODAL -->
-    <div class="modal fade " id="perfilModal" tabindex="-1" aria-labelledby="profileUser" aria-hidden="true">
+    <div class="modal fade information-modal" id="perfilModal" tabindex="-1" aria-labelledby="profileUser"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -81,8 +81,8 @@
                             <div class="profile-picture">
                                 <div class="dropdown">
                                     <img id="dropdownMenuButton" display="dinamic" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false" class="rounded-circle mb-5" src=""
-                                        alt="" id="profilePhoto">
+                                        aria-haspopup="true" aria-expanded="false"
+                                        class="rounded-circle mb-5 profile-photo" src="" alt="" id="profilePhoto">
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="#" onclick="deleteFile()">Eliminar photo</a>
                                     </div>
@@ -134,7 +134,8 @@
     <!-- END PROFILE MODAL -->
 
     <!-- FRIEND PROFILE MODAL -->
-    <div class="modal fade " id="friendModal" tabindex="-1" aria-labelledby="profileUser" aria-hidden="true">
+    <div class="modal fade information-modal" id="friendModal" tabindex="-1" aria-labelledby="profileUser"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -156,7 +157,7 @@
                                     <input disabled type="email" class="form-control form-control-sm" id="emailFriend">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Example textarea</label>
+                                    <label for="exampleFormControlTextarea1">Acerca de mi</label>
                                     <textarea disabled class="form-control" rows="1" id="statusFriend"></textarea>
                                 </div>
                             </form>
@@ -171,6 +172,7 @@
 
     <!-- END FRIEND PROFILE MODAL -->
 
+    <!-- EXPLORE CONTACTS MODAL -->
 
     <div class="modal fade" id="contactsModal" tabindex="-1" aria-labelledby="profileUser" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
@@ -194,6 +196,7 @@
             </div>
         </div>
     </div>
+    <!-- END EXPLORE CONTACTS MODAL -->
 
 
 </body>

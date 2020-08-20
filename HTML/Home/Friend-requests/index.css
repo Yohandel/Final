@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+}
+
+#container-fluid {
+    background: #EDF9F8 0% 0% no-repeat padding-box;
+    opacity: 1;
+    height: 100%;
+    margin: 0;
+    padding: 0px 0px;
+}
+
+#container-fluid .btn-success {
+    background: var(--unnamed-color-11bcb8) 0% 0% no-repeat padding-box;
+    background: #11BCB8 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    opacity: 1;
+    border: none;
+}
+
+#container-fluid .btn-secondary {
+    background: var(--unnamed-color-11bcb8) 0% 0% no-repeat padding-box;
+    background: #11BCB8 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    opacity: 1;
+    border: none;
+    height: 43%;
+    margin: auto 0;
+}
+
+#container-fluid .btn-secondary:focus {
+    border: none;
+}
+
+#container-fluid .btn-success:disabled {
+    background: #46b3b1d8 0% 0%;
+}
+
+#container-fluid .btn-success:hover {
+    background: #0c8583d8 0% 0%;
+}
+
+#container-fluid .btn-success:focus {
+    background: #11BCB8 0% 0%;
+}
+
+#container-fluid .btn-success::selection {
+    background: #11BCB8 0% 0%;
+}
+
+nav {
+    background: var(--unnamed-color-11bcb8) 0% 0% no-repeat padding-box;
+    background: #11BCB8 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+#search-bar {
+    display: initial;
+    width: 79%;
+    height: 44px;
+    margin: 30px 0;
+    border: 2px solid var(--unnamed-color-11bcb8);
+    background: #FFFFFF;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    opacity: 1
+}
+
+#search-bar:hover #labelsearch {
+    color: blue;
+}
+
+.title {
+    text-align: center;
+    font: Bold 21px/34px Segoe UI;
+    letter-spacing: 0px;
+    color: #707070;
+    opacity: 1;
+    margin: 0 0 50px 0;
+}
+
+.row {
+    width: 100%;
+    margin: 0;
+}
+
+.row-container {
+    background: #FFFFFF;
+}
+
+.requests {
+    list-style: none;
+}
+
+#externRows {
+    height: 75%;
+    overflow: scroll;
+}
+
+#externRows::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+#externRows::-webkit-scrollbar-thumb {
+    background: #dadcdd;
+    border-radius: 10px;
+}
+
+#externRows::-webkit-scrollbar-thumb:hover {
+    background: #cecfcf;
+}
+
+.requests .row {
+    margin: 0 0 70px 0px;
+}
+
+.username {
+    text-align: left;
+    font: Bold 15px/21px Segoe UI;
+    letter-spacing: 0px;
+    color: #707070;
+    opacity: 1;
+}
+
+.about {
+    text-align: left;
+    font: Regular 10px/11px Segoe UI;
+    letter-spacing: 0px;
+    color: #707070;
+    opacity: 1;
+}
+
+.icons i {
+    position: absolute;
+}
+
+.icon-default {
+    transition: opacity .3s, transform .3s;
+}
+
+.icon-hover {
+    transition: opacity .3s, transform .3s;
+    transform: rotate(-180deg) scale(.5);
+    opacity: 0;
+}
+
+.icons:hover .icon-default {
+    transform: rotate(180deg) scale(.5);
+    opacity: 0;
+}
+
+.icons:hover .icon-hover {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+}

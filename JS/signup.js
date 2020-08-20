@@ -34,7 +34,8 @@ function SignUp(evt) {
 function sendInformation(username, email, password) {
   firebase.auth().createUserWithEmailAndPassword(email, password).then(res => {
     createUSR(res.user.uid,res.user.email, username)
-  }).catch(function (error) {
+  }).catch(function  (error) { 
+alert(`${error.message} ${error.code}`)
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
