@@ -90,25 +90,25 @@ const contactsFilter = (user) => {
 
 
 const friendRequest = (id) => {
-    // let btn = document.getElementById(`btn${id}`);
-    // btn.innerHTML = `<i class="fas fa-spinner"></i>`;
-    // let usr = firebase.auth().currentUser;
+    let btn = document.getElementById(`btn${id}`);
+    btn.innerHTML = `<i class="fas fa-spinner"></i>`;
+    let usr = firebase.auth().currentUser;
 
-    // db
-    //     .collection("friends")
-    //     .doc()
-    //     .set({
-    //         sender: usr.uid,
-    //         receiver: id,
-    //         status: "sent"
-    //     })
-    //     .then(doc => {
-    //         btn.disabled = true
-    //         btn.innerHTML = `Sent <i class="fas fa-user-clock"></i>`
-    //     })
-    //     .catch(function  (error) { 
+    db
+        .collection("friends")
+        .doc()
+        .set({
+            sender: usr.uid,
+            receiver: id,
+            status: "sent"
+        })
+        .then(doc => {
+            btn.disabled = true
+            btn.innerHTML = `Sent <i class="fas fa-user-clock"></i>`
+        })
+        .catch(function  (error) { 
     alert(`${error.message} ${error.code}`)
-    //         alert(`${error.message} ${error.code}`)
-    //     })
+            alert(`${error.message} ${error.code}`)
+        })
 
 }

@@ -5,36 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/Images/Asset 7.svg" type="image/gif" sizes="100x100">
-    <title>¡Accede!</title>
+    <title>Amigos</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 
 <body>
-    <div id="bg">
-        <div class="container-fluid" id="contianer">
-            <img src="/Images/Asset 2.svg" alt="" id="logo">
-            <form id="loginForm">
-                <div class="alert alert-danger" id="errorMessage" role="alert" hidden>
-                </div>
-                <h2 id="loginTitle">Sign in</h2>
-                <div class="form-group">
-                    <label for="loginEmail">Email</label>
-                    <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp">
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <input type="password" class="form-control" id="loginPassword">
-                </div>
-                <button class="btn btn-success" onclick="signIn(event)">Login</button><br>
-                <small class="text-muted">¿No tienes una cuenta? <a href="../SignUp/"
-                        class="text-decoration-none">registrate</a></a></small>
-
-            </form>
+    <div class="container-fluid text-center" id="container-fluid">
+        <nav class="navbar navbar-light">
+            <a class="navbar-brand" href="/HTML/Home/"><i class="fas fa-arrow-left"></i></a>
+          </nav>
+        <div class="input-group">
+            <input class="form-control" type="search" id="search-bar" name="" placeholder="Buscar...">
+            <div class="input-group-append">
+                <button class="input-group-text btn-secondary" for="inputGroupSelect02"> <i
+                        class="fas fa-search icon-default"></i>
+                </button>
+            </div>
+        </div>
+        <div class="row" id="externRows">
+            <div class="col col-md-1">
+            </div>
+            <div class="col col-md-5">
+                <label class="title" for="">Amigos</label>
+                <ul class="text-center friends" id="friends-list">
+                </ul>
+            </div>
+            <div class="col col-md-5">
+                <label class="title" for="">Bloqueados</label>
+                <ul class="text-center friends" id="blocked-friends">
+                </ul>
+            </div>
+            <div class="col col-md-1">
+            </div>
         </div>
     </div>
 </body>
+
 <!--SCRIPTS-->
 <!-- BOOTSTRAP -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -70,7 +78,7 @@
 </script>
 
 <!-- JS INDEX FILE -->
-<script src="/JS/login.js"></script>
+<script src="/JS/friends-list.js"></script>
 
 
 <!-- FONTAWESOME -->
