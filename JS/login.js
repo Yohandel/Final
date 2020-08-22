@@ -15,10 +15,10 @@ function signIn(evt) {
   else {
     alert.hidden = true
     alert.innerHTML = ``
-    firebase.auth().signInWithEmailAndPassword(email, password).then(res =>{
+    firebase.auth().signInWithEmailAndPassword(email, password).then(res => {
       window.location.href = "/HTML/Home";
-    }).catch(function (error) { 
-alert(`${error.message} ${error.code}`)
+    }).catch(function (error) {
+      alert(`${error.message} ${error.code}`)
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -28,7 +28,7 @@ alert(`${error.message} ${error.code}`)
 
   }
 
-  
+
 
 
 }

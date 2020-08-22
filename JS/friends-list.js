@@ -18,7 +18,6 @@ const friends = (id) => {
             friends.innerHTML = ``;
             querySnapshot.forEach(friend => {
                 if (id == friend.data().sender || id == friend.data().receiver) {
-                    // console.log(friend.data())
                     db
                         .collection("users")
                         .where("uid", "in", [friend.data().sender, friend.data().receiver])
@@ -67,6 +66,7 @@ const blocked = (id) => {
 
     DBfriends
         .where("status", "==", "blocked")
+        .where("blocker_user","==",id)
         .onSnapshot(querySnapshot => {
             blocked.innerHTML = ``;
             querySnapshot.forEach(friend => {

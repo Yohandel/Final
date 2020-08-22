@@ -6,17 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/Images/Asset 7.svg" type="image/gif" sizes="100x100">
     <title>Home</title>
-    <link rel="stylesheet" href="./contacts.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="./contacts.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./conversation.css">
 
 </head>
 
 <body>
     <div class="container navs">
         <div class="row justify-content-start">
-            <div class="col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12 left-column">
                 <nav class="navbar navbar-expand-lg sticky">
                     <a class="navbar-brand" href="#" data-toggle="modal" data-target="#perfilModal">
                         <img class="rounded-circle profile-photo" src="" alt="" id="profilePhoto">
@@ -29,9 +31,10 @@
                             <li><i data-toggle="tooltip" data-placement="top" title="Descubre nuevos amigos"
                                     class="fas fa-address-book"></i></li>
                         </a>
-                        <a href="#" class="btn btn-circle" type="button" data-toggle="tooltip" data-placement="top"
-                            title="Inicia un nuevo chat">
-                            <li><i class="fas fa-comment-alt"></i></li>
+                        <a href="#" data-toggle="modal" data-target="#conversationModal" class="btn btn-circle"
+                            type="button">
+                            <li><i class="fas fa-comment-alt" data-toggle="tooltip" data-placement="top"
+                                    title="Inicia una conversación"></i></li>
                         </a>
                     </ul>
                     <div class="dropdown dropleft">
@@ -49,20 +52,20 @@
                     </div>
                 </nav>
 
-                <div class="container contacts-container">
+                <div class="container chats-container">
                     <div class="form-group search-form">
                         <input type="text" class="form-control form-control-sm mt-3" id="searchInput"
                             placeholder="Buscar...">
                     </div>
                     <hr>
-                    <ul class="contacts" id="contacts">
-
+                    <!-- <input type="submit" value=""> -->
+                    <ul class="chats" id="chats">
                     </ul>
                 </div>
 
             </div>
-            <div class="col-md-8 col-sm-0" id="chat">
-                <div class="default-bg" id="chatBG"></div>
+            <div class="col-md-8 col-sm-0" id="conversation">
+                <div class="default-bg" id="converBG"></div>
             </div>
         </div>
     </div>
@@ -199,6 +202,54 @@
     <!-- END EXPLORE CONTACTS MODAL -->
 
 
+    <!-- FRIENDS MODAL -->
+
+    <div class="modal fade" id="conversationModal" tabindex="-1" aria-labelledby="profileUser" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-body" id="container">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <i class="fas fa-arrow-left" class="close" data-dismiss="modal" aria-label="Close"></i>
+                        <ul class="navbar-nav mr-auto">
+                        </ul>
+                        <div class="form-group search-form">
+                            <input type="text" class="form-control form-control-sm mt-3" id="searchInput2"
+                                placeholder="Buscar...">
+                        </div>
+                    </nav>
+                    <div class="conversations-container">
+                        <ul class="conversations text-center" id="friends-list">
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END FRIENDS MODAL -->
+
+    <!-- SEND PICTURE MODAL -->
+    <div class="modal fade information-modal" id="sendPicture" tabindex="-1" aria-labelledby="profileUser"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="text-center" id="imageModal">
+                           
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END SEND PICTURE MODAL -->
+
+
 </body>
 <!--SCRIPTS-->
 <!-- BOOTSTRAP -->
@@ -237,6 +288,7 @@
 <!-- JS INDEX FILE -->
 <script src="/JS/home.js"></script>
 <script src="/JS/contacts.js"></script>
+<script src="/JS/conversations.js"></script>
 
 
 <!-- FONTAWESOME -->
@@ -252,6 +304,7 @@
     $('.custom-file-input').on('change', function () {
         let fileName = $(this).val().split('\\').pop();
         $(this).next('.custom-file-label').html(fileName);
+
     });
 </script>
 

@@ -32,6 +32,9 @@ body, html {
 }
 
 /*...NAVS...*/
+.left-column{
+    height: 657px;
+}
 
 .container {
     height: 100%;
@@ -106,13 +109,13 @@ nav #userName {
 
 /*...SERACH FORM...*/
 
-.contacts-container .search-form {
+.chats-container .search-form {
     width: 300px;
     margin: auto;
     padding: 5px 0 0 0;
 }
 
-.contacts-container #searchInput {
+.chats-container #searchInput {
     border-radius: 8px;
 }
 
@@ -123,7 +126,7 @@ hr {
 
 /*...CONTACTS...*/
 
-.col-md-4 .contacts-container {
+.col-md-4 .chats-container {
     background: var(--unnamed-color-edf9f8) 0% 0% no-repeat padding-box;
     background: #EDF9F8 0% 0% no-repeat padding-box;
     opacity: 1;
@@ -131,41 +134,41 @@ hr {
     margin-bottom: 0;
 }
 
-.contact-container .row {
+.chat-container .row {
     margin: 0;
     padding: 0;
 }
 
-.contacts-container  .contacts {
+.chats-container  .chats {
     overflow: scroll;
     height: 81%;
     scroll-behavior: smooth;
     list-style: none;
 }
 
-.contacts-container  .contacts .contact {
+.chats-container  .chats .chat {
     cursor: pointer;
 }
 
-.contacts-container  .contacts::-webkit-scrollbar {
+.chats-container  .chats::-webkit-scrollbar {
     width: 10px;
     height: 10px;
 }
 
-.contacts-container  .contacts::-webkit-scrollbar-thumb {
+.chats-container  .chats::-webkit-scrollbar-thumb {
     background: #dadcdd;
     border-radius: 10px;
 }
 
-.contacts-container  .contacts::-webkit-scrollbar-thumb:hover {
+.chatts-container  .chats::-webkit-scrollbar-thumb:hover {
     background: #cecfcf;
 }
 
-.contact {
+.chat {
     margin: 15px 0 0 0;
 }
 
- .contact-container {
+ .chat-container {
     border-radius: 10px;
     width: 310px;
     height: 50px;
@@ -173,14 +176,14 @@ hr {
     padding: 18px 10px 70px;
 }
 
-.contact .dropdown-menu {
+.chat .dropdown-menu {
     visibility: hidden;
     opacity: 0;
     transform: translateY(0px);
     transition: .3s ease all;
 }
 
-.contact .dropdown-menu.show {
+.chat .dropdown-menu.show {
     visibility: visible;
     opacity: 1;
     transform: translateY(10px);
@@ -189,16 +192,16 @@ hr {
 
 /*...CHAT...*/
 
-#chat{
+#conversation{
     height: 656.5px;
 }
 
-.chat-nav .row {
+.conver-nav .row {
     margin: 0;
     padding: 0;
 }
 
-.chat-container {
+.conver-container {
     height: 81.4%;
     overflow-y: scroll;
     scroll-behavior: smooth;
@@ -207,7 +210,7 @@ hr {
     opacity: 1;
 }
 
-.chat-container .message {
+.conver-container .message {
     height: fit-content;
     width: 325px;
     padding: 10px;
@@ -215,11 +218,11 @@ hr {
     margin: 25px 10px;
 }
 
-.chat-container .left {
+.conver-container .left {
     background: #ffffff;
 }
 
-.chat-container .right {
+.conver-container .right {
     margin-left: 61%;
     background: #b2f0ca;
 }
@@ -228,17 +231,17 @@ hr {
     margin: 0;
 }
 
-.chat-container::-webkit-scrollbar {
+.conver-container::-webkit-scrollbar {
     width: 10px;
     height: 10px;
 }
 
-.chat-container::-webkit-scrollbar-thumb {
+.conver-container::-webkit-scrollbar-thumb {
     background: #dadcdd;
     border-radius: 10px;
 }
 
-.chat-container::-webkit-scrollbar-thumb:hover {
+.conver-container::-webkit-scrollbar-thumb:hover {
     background: #cecfcf;
 }
 

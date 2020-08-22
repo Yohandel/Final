@@ -75,7 +75,6 @@ const contactsFilter = (user) => {
         .get()
         .then(function (querySnapshot) {
             querySnapshot.forEach(doc => {
-                console.log(doc.data().receiver)
                 document.getElementById(`btn${doc.data().sender}`).disabled = true
                 document.getElementById(`btn${doc.data().sender}`).innerHTML = `Amigo <i class="fas fa-user-friends"></i>`
             });
