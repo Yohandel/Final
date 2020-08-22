@@ -66,7 +66,7 @@ const blocked = (id) => {
 
     DBfriends
         .where("status", "==", "blocked")
-        .where("blocker_user","==",id)
+        .where("blocker_user", "==", id)
         .onSnapshot(querySnapshot => {
             blocked.innerHTML = ``;
             querySnapshot.forEach(friend => {
@@ -121,22 +121,53 @@ const blockUser = (user_id, current_id) => {
     let DBfriends = db.collection("friends");
 
     DBfriends
+        .where("status", "==", "friends")
         .get()
         .then(querySnapshot => {
             querySnapshot.forEach(friend => {
                 if (user_id == friend.data().sender || user_id == friend.data().receiver) {
-                    db
-                        .doc(`friends/${friend.id}`)
-                        .update({
-                            status: "blocked",
-                            blocker_user: current_id
-                        })
-                        .then(function (doc) {
-                            alert(`Usuario bloqueado satisfactoriamente`)
-                        })
-                        .catch(function (error) {
-                            alert(`${error.message}${error.code}`)
-                        })
+                    if (current_id == friend.data().sender || current_id == friend.data().receiver) {
+                        console.log(friend.data())
+                        db
+                            .doc(`friends/${friend.id}`)
+                            .update({
+                                status: "blocked",
+                                blocker_user: current_id
+                            })
+                            .then(function (doc) {
+                                db
+                                    .collection("conversations")
+                                    .get()
+                                    .then(function (querySnapshot) {
+                                        querySnapshot.forEach(function (doc) {
+                                            if (friend.data().receiver == doc.data().creator || friend.data().receiver == doc.data().chatUser ) {
+                                                if (friend.data().sender == doc.data().creator || friend.data().sender == doc.data().chatUser) {
+                                                    db
+                                                        .doc(`conversations/${doc.id}`)
+                                                        .update({
+                                                            status:"blocked"
+                                                        })
+                                                        .then(function (doc) {
+                                                    
+                                                        })
+                                                        .catch(function (error) {
+                                                    
+                                                        })
+                                                }
+                                                
+                                            }
+                                
+                                        });
+                                    })
+                                    .catch(function (error) {
+                                
+                                    })
+                                alert(`Usuario bloqueado satisfactoriamente`)
+                            })
+                            .catch(function (error) {
+                                alert(`${error.message}${error.code}`)
+                            })
+                    }
                 }
             });
         })
@@ -156,19 +187,48 @@ const unblockUser = (user_id, current_id) => {
         .then(querySnapshot => {
             querySnapshot.forEach(friend => {
                 if (user_id == friend.data().sender || user_id == friend.data().receiver) {
-                    db
-                        .doc(`friends/${friend.id}`)
-                        .update({
-                            status: "friends",
-                            blocker_user: current_id
-                        })
-                        .then(function (doc) {
-                            alert(`Usuario desbloqueado`)
-
-                        })
-                        .catch(function (error) {
-                            alert(`${error.message}${error.code}`)
-                        })
+                    if (current_id == friend.data().sender || current_id == friend.data().receiver) {
+                        db
+                            .doc(`friends/${friend.id}`)
+                            .update({
+                                status: "friends",
+                                blocker_user: current_id
+                            })
+                            .then(function (doc) {
+                                db
+                                .collection("conversations")
+                                .get()
+                                .then(function (querySnapshot) {
+                                    querySnapshot.forEach(function (doc) {
+                                        if (friend.data().receiver == doc.data().creator || friend.data().receiver == doc.data().chatUser ) {
+                                            if (friend.data().sender == doc.data().creator || friend.data().sender == doc.data().chatUser) {
+                                                db
+                                                    .doc(`conversations/${doc.id}`)
+                                                    .update({
+                                                        status:"friends"
+                                                    })
+                                                    .then(function (doc) {
+                                                
+                                                    })
+                                                    .catch(function (error) {
+                                                
+                                                    })
+                                            }
+                                            
+                                        }
+                            
+                                    });
+                                })
+                                .catch(function (error) {
+                            
+                                })
+                                alert(`Usuario desbloqueado`)
+    
+                            })
+                            .catch(function (error) {
+                                alert(`${error.message}${error.code}`)
+                            })
+                    }
                 }
             });
         })

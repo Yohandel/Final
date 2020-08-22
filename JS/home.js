@@ -59,10 +59,9 @@ const loadChats = (id) => {
                                                             <i class="fas fa-cog" class="settingsIcon"></i>
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                            <a class="dropdown-item" href="#">Eliminar chat</a>
+                                                            <a class="dropdown-item" href="#" onclick="deleteConver('${user.id}','${id}')">Eliminar chat</a>
                                                             <a class="dropdown-item" href="#" data-toggle="modal"
                                                             data-target="#friendModal" onclick="friendProfile('${user.id}')">Ver contacto</a>
-                                                            <a class="dropdown-item" href="#">Bloquear contacto</a>
                                                         </div>
                                                     </div>
                                                 </div>
