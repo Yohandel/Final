@@ -107,7 +107,7 @@ const blocked = (id) => {
                             alert(`${error.message}${error.code}`)
                         })
                 } else {
-                    console.log("hols")
+                    
                 }
 
             });
@@ -127,7 +127,7 @@ const blockUser = (user_id, current_id) => {
             querySnapshot.forEach(friend => {
                 if (user_id == friend.data().sender || user_id == friend.data().receiver) {
                     if (current_id == friend.data().sender || current_id == friend.data().receiver) {
-                        console.log(friend.data())
+                        
                         db
                             .doc(`friends/${friend.id}`)
                             .update({

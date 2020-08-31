@@ -17,13 +17,9 @@ function signIn(evt) {
     alert.innerHTML = ``
     firebase.auth().signInWithEmailAndPassword(email, password).then(res => {
       window.location.href = "/HTML/Home";
-    }).catch(function (error) {
-      alert(`${error.message} ${error.code}`)
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(`${errorMessage} ${errorCode}`)
-      // ...
+    }).catch(error => {
+      console.log(error)
+      window.alert(`${error.message}${error.code}`)
     });
 
   }

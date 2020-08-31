@@ -82,10 +82,9 @@ const loadChats = (id) => {
 const logout = () => {
     firebase.auth().signOut()
         .then(res => {
-            console.log(res)
+        
         }).catch(function (error) {
             alert(`${error.message} ${error.code}`)
-            console.log(`${error.code} ${error.message}`)
         });
 }
 
@@ -120,7 +119,6 @@ const editToggle = () => {
                 document.getElementById("statusProfile").innerHTML = doc.data().about;
             })
             .catch(error => {
-                console.log(error)
             })
     }
 

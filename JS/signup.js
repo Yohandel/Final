@@ -36,20 +36,12 @@ function sendInformation(username, email, password) {
     createUSR(res.user.uid,res.user.email, username)
   }).catch(function  (error) { 
 alert(`${error.message} ${error.code}`)
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log(` ${errorMessage} ${errorCode} `)
-    // ...
   });
 }
 
 function createUSR(uid, email, userName) {
 
   const gsReference = storage.refFromURL('gs://whtasappproject.appspot.com/Not-file')
-  console.log(gsReference.bucket + "/"+gsReference.fullPath)
-
-  console.log(gsReference)
 
   db.collection("users").doc(uid).set({
     uid: uid,
@@ -58,13 +50,14 @@ function createUSR(uid, email, userName) {
     about:"Hola soy nuevo",
     photo:"/Images/Not-file.png"
   }).then((res) => {
+    alert("Usuario creado satisfactoriamente")
     document.getElementById("userName").value = "";
     document.getElementById("signupEmail").value = "";
     document.getElementById("signupPassword").value = "";
     document.getElementById("confirmPassword").value = "";
 
   }).catch((err) => {
-
+alert(`${error.message}${error.code}`)
   });
 
 }

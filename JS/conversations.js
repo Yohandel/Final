@@ -64,7 +64,6 @@ const createConversation = (user_id, current_id, friendship) => {
                 }
 
                 else {
-                    console.log("No")
                     DBconversations
                         .doc(`${current_id}-${user_id}`)
                         .set({
@@ -148,7 +147,6 @@ const openConversation = (user_id, current_id) => {
         .get()
         .then(querySnapshot => {
             querySnapshot.forEach(conver => {
-                console.log(conver.data())
                 if (user_id == conver.data().chatUser) {
 
                     DBconversations
@@ -200,7 +198,6 @@ const openConversation = (user_id, current_id) => {
         .get()
         .then(querySnapshot => {
             querySnapshot.forEach(conver => {
-                console.log(conver.data())
                 if (current_id == conver.data().chatUser) {
 
                     DBconversations
@@ -417,7 +414,6 @@ const sendPicture = (user_id, current_id) => {
                     .get()
                     .then(function (querySnapshot) {
                         querySnapshot.forEach(function (doc) {
-                            console.log(doc.data())
                             if (doc.data().chatUser == user_id || doc.data().creator == user_id) {
 
                                 DBconversations
